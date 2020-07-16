@@ -1,0 +1,17 @@
+.container{
+  display: flex;
+}
+
+.navbar {
+  margin-inline-start: 20px;
+  margin-inline-end: 20px;
+  background-color: darkkhaki;
+}
+
+.navbar >div {
+  font-size: 20px;
+  padding: 5px;
+  border-bottom: 1px saddlebrown solid;
+  border-left: 1px saddlebrown solid;
+  border-right: 1px saddlebrown solid;
+}

@@ -1,0 +1,12 @@
+<h1>books list</h1>
+<ul>
+  <li *ngFor="let item of bookList$|async">
+    <div>
+
+      {{item.bookName}}
+    </div>
+    <div>
+      {{item.bookDescription}}
+    </div>
+  </li>
+</ul>
