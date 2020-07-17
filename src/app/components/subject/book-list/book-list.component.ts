@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BookService } from '../book.service';
-import { Observable } from 'rxjs';
+import { Observable, of, Subject } from 'rxjs';
 import { Book } from '../add-book/add-book.component';
+import { switchMap, map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-book-list',
@@ -10,11 +11,18 @@ import { Book } from '../add-book/add-book.component';
 })
 export class BookListComponent implements OnInit {
 
-  bookList$ :Observable<Book[]>
-  constructor(private bookService:BookService) { }
+  bookList$: Observable<Book[]>
+
+  currentDescription: string;
+ 
+  constructor(private bookService: BookService) { }
 
   ngOnInit() {
     this.bookList$ = this.bookService.getList()
   }
-
+  expand(index: number ,description:string) {
+    console.log(index);
+    this.currentDescription = description
+    
+  }
 }
