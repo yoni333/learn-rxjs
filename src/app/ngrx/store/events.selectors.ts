@@ -1,15 +1,15 @@
 import { createSelector, createFeatureSelector, MemoizedSelector } from '@ngrx/store';
-import { AppState, IStateEvent } from '../store/event'
+import { AppState, IStateEvent, ISingleEvent } from '../store/event'
 
 
 export const selectFeature :MemoizedSelector<object,IStateEvent>= createFeatureSelector<AppState, IStateEvent>('events');
 
-export const eventsFeature:MemoizedSelector<object,IStateEvent> = createSelector(
+export const eventsFeature:MemoizedSelector<object,ISingleEvent[]> = createSelector(
   selectFeature,
-  (state):IStateEvent=>state.events
+  (state):ISingleEvent[]=>state.events
 )
 
 export const selectFeatureCity:MemoizedSelector<object,string[]> = createSelector(
-  eventsFeature,
+  selectFeature,
   (state: IStateEvent) :string[]=> state.events.map(event=>event.city)
 );
