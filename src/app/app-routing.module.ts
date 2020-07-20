@@ -12,7 +12,9 @@ import { BookListComponent } from './components/subject/book-list/book-list.comp
 import { FromEventMouseComponent } from './components/from-event-mouse/from-event-mouse.component'
 import { ThrottleTimeComponent } from './components/throttle-time/throttle-time.component'
 import { BuffersComponent } from './components/buffers/buffers.component'
-import {HttpClientComponent} from './components/http-client/http-client.component'
+import { HttpClientComponent } from './components/http-client/http-client.component'
+import { AddEventComponent } from './ngrx/add-event/add-event.component'
+import { AdminEventsListComponent } from './ngrx/admin-events-list/admin-events-list.component'
 const routes: Routes = [
   { path: 'step-a-from-of', component: OfFromComponent },
   { path: 'step-b-map-concat', component: MapConcatComponent },
@@ -23,6 +25,9 @@ const routes: Routes = [
   { path: 'step-g-throttle', component: ThrottleTimeComponent },
   { path: 'step-h-buffers', component: BuffersComponent },
   { path: 'step-i-http', component: HttpClientComponent },
+  { path: 'step-j-ngrx', component: AddEventComponent },
+  { path: 'step-j-ngrx-admin', component: AdminEventsListComponent },
+
 ];
 
 @NgModule({
@@ -37,7 +42,9 @@ const routes: Routes = [
     , FromEventMouseComponent
     , ThrottleTimeComponent
     , BuffersComponent
-    ,HttpClientComponent
+    , HttpClientComponent
+    , AddEventComponent
+    , AdminEventsListComponent
   ],
   exports: [RouterModule]
 })

@@ -5,7 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 
-
+import { StoreDevtoolsModule } from '@ngrx/store-devtools'
+import { StoreModule } from '@ngrx/store'
+import { reducer } from './ngrx/store/event'
 @NgModule({
   declarations: [
     AppComponent
@@ -13,7 +15,15 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    StoreModule.forRoot( {events:reducer}, {
+
+      runtimeChecks: {
+        strictStateImmutability: true,
+        strictActionImmutability: true,
+      }
+    }),
+    StoreDevtoolsModule.instrument({ maxAge: 25 })
   ],
   providers: [],
   bootstrap: [AppComponent]
